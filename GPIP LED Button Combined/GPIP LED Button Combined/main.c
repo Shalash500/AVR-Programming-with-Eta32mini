@@ -44,6 +44,8 @@ int main(void)
 			if (!(PIND & (1 << push_button1)))
 			{
 				state++;
+				if (state > 2)
+					state = 0;
 			}
 		}
 		
@@ -62,8 +64,6 @@ int main(void)
 			all_leds_off();
 			PORTC |= (1 << blue_led);
 		}
-		else if (state > 2)
-			state = 0;
 		
 		uint8_t sw2_current = (PIND & (1 << push_button2)) ? 1 : 0;
 
