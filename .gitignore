@@ -53,3 +53,29 @@ dkms.conf
 
 # debug information files
 *.dwo
+
+# AVR build output
+*.o
+*.elf
+*.hex
+*.eep
+*.lss
+*.srec
+*.map
+
+# Microchip Studio / Atmel Studio generated files
+*.atsuo
+*.componentinfo.xml
+Debug/
+Release/
+
+# Microchip Studio auto-generated makefiles (inside Debug folder)
+Makefile
+makedep.mk
+
+# Visual Studio / Atmel Studio IDE files
+.vs/
+
+# Windows
+Thumbs.db
+Desktop.ini
