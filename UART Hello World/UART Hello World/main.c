@@ -15,19 +15,16 @@
 void uart_init(void)
 {
 	// Set baud rate
-	UBRRH = (UBRR_VAL >> 8);   // high byte
-	UBRRL = (UBRR_VAL & 0xFF); // low byte
+	UBRRH = (UBRR_VAL >> 8);
+	UBRRL = (UBRR_VAL & 0xFF);
 
-	// Enable transmitter only for now
 	UCSRB = (1 << TXEN);
 
-	// Frame format: 8 data bits, 1 stop bit
 	UCSRC = (1 << URSEL) | (1 << UCSZ1) | (1 << UCSZ0);
 }
 
 void uart_send_byte(uint8_t data)
 {
-	// Wait until transmit buffer is empty
 	while (!(UCSRA & (1 << UDRE)));
 	UDR = data;
 }
